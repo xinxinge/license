@@ -1,0 +1,6 @@
+dbtype: 'mysql'
+dbhost: 'localhost'
+dbname: 'licence'
+dbuser: 'root'
+dbpass: 'redhat'
+debug: 1
