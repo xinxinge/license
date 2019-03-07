@@ -1,0 +1,11 @@
+License系统
+
+=========== 目录结构
+config  -- 系统配置目录
+doc     -- 文档
+service -- 后台服务
+tools   -- 工具
+webui   -- web界面
+
+build.sh -- 安装包编译脚本
+
