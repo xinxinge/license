@@ -32,6 +32,9 @@ class License:
 
 
 
+    def getkey(self):
+        newlic = self.data.copy()
+        return newlic['lickey']
     def getInfo(self):
         '''输出license信息'''
         newlic = self.data.copy()
@@ -97,23 +100,22 @@ class License:
     def encrypt_keystr(self):
         '''加密licdata'''
         global aes_key, aes_iv
-
         if 'lickey' in self.data:
             return
-
         # 随机字符串, 防止一样的注册码
         self.data['random'] = str(uuid.uuid4())
         try:
             obj = AES.new(aes_key, AES.MODE_CBC, aes_iv)
-
             lictxt = json.dumps(self.data, ensure_ascii=False)
             if len(lictxt) % 16:
                 padlen = 16 - len(lictxt) % 16
                 lictxt = lictxt + ''.zfill(padlen)
             keydata = obj.encrypt(lictxt)
             self.data['lickey'] = base64.b64encode(keydata)
+
         except Exception as err:
             print (str(err))
+
 
     def decrypt_keystr(self, keystr):
         '''解密keystr'''
