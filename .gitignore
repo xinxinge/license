@@ -45,3 +45,9 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+.idea
+webui/.babelrc
+webui/.editorconfig
+webui/.postcssrc.js
+
